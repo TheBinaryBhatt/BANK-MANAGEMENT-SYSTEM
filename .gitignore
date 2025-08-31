@@ -1,0 +1,23 @@
+# Ignore Windows executables and binaries
+*.exe
+*.obj
+*.dll
+
+# Ignore Linux/Mac binaries
+*.out
+*.o
+*.so
+
+# Ignore account data files
+*.dat
+*.csv
+
+# Ignore logs
+*.log
+
+# Ignore backup or temporary files
+*~
+*.tmp
+
+# Ignore Visual Studio Code settings (optional if you don’t want to share them)
+.vscode/

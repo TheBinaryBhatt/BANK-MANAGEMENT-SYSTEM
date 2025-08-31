@@ -67,66 +67,74 @@ void exportToCSV() {
     cout << "\n\nAccounts exported to accounts.csv successfully!";
 }
 
+int getAccountNumber() {
+    int num;
+    cout << "\n\nEnter The account No. : ";
+    cin >> num;
+    return num;
+}
+
+
 int main() {
-    char ch;
+    int ch;
     int num;
     
     do {
-        system("clear"); // Use "cls" for Windows
+        system("cls"); // Use "cls" for Windows
         displayMenu();
         
         cin >> ch;
-        system("clear");
+        system("cls");
         
         switch(ch) {
-            case '1':
+            case 1:
                 createAccount();
                 break;
-            case '2':
+            case 2:
                 num = getAccountNumber();
                 depositWithdraw(num, 1);
                 logTransaction(num, "DEPOSIT", 0); // Amount would be captured in the function
                 break;
-            case '3':
+            case 3:
                 num = getAccountNumber();
                 depositWithdraw(num, 2);
                 logTransaction(num, "WITHDRAWAL", 0); // Amount would be captured in the function
                 break;
-            case '4':
+            case 4:
                 num = getAccountNumber();
                 displayAccount(num);
                 break;
-            case '5':
+            case 5:
                 num = getAccountNumber();
                 modifyAccount(num);
                 break;
-            case '6':
+            case 6:
                 num = getAccountNumber();
                 deleteAccount(num);
                 break;
-            case '7':
+            case 7:
                 if (adminLogin()) {
                     displayAllAccounts();
                 } else {
                     cout << "\n\n\tAccess Denied!";
                 }
                 break;
-            case '8':
+            case 8:
                 if (adminLogin()) {
                     // Display transaction history
-                    system("cat transactions.log"); // Use "type" for Windows
+                    system("type transactions.log"); // Use "type" for Windows
                 } else {
                     cout << "\n\n\tAccess Denied!";
                 }
                 break;
-            case '9':
+            case 9:
                 if (adminLogin()) {
                     exportToCSV();
                 } else {
                     cout << "\n\n\tAccess Denied!";
                 }
                 break;
-            case '10':
+            case 10:
                 cout << "\n\n\tThanks for using bank management system";
                 break;
             default:
@@ -135,8 +143,8 @@ int main() {
         
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cin.get();
-        
-    } while(ch != '10');
-    
+
+    } while(ch != 10);
+
     return 0;
 }
