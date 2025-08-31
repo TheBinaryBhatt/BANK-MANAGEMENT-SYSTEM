@@ -1,4 +1,4 @@
-// Account.cpp
+
 #include "Account.h"
 #include <iomanip>
 using namespace std;
@@ -24,7 +24,7 @@ void Account::createAccount() {
 void Account::showAccount() const {
     cout << "\nAccount Number: " << accountNumber;
     cout << "\nAccount Holder Name: " << name;
-    cout << "\nType of Account: " << (type == 'S' ? "Savings" : "Current");
+    cout << "\nType of Account: " << (type == 'Savings' ? "Savings" : "Current");
     cout << "\nBalance amount: " << fixed << setprecision(2) << balance;
 }
 
@@ -47,8 +47,13 @@ void Account::deposit(double amount) {
 }
 
 void Account::withdraw(double amount) {
-    balance -= amount;
+    if (balance - amount >= 0) {
+        balance -= amount;
+    } else {
+        std::cout << "Insufficient funds!\n";
+    }
 }
+
 
 int Account::getAccountNumber() const {
     return accountNumber;

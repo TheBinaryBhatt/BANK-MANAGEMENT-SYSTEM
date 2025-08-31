@@ -80,7 +80,7 @@ int main() {
     int num;
     
     do {
-        system("cls"); // Use "cls" for Windows
+        system("cls");
         displayMenu();
         
         cin >> ch;
@@ -93,12 +93,10 @@ int main() {
             case 2:
                 num = getAccountNumber();
                 depositWithdraw(num, 1);
-                logTransaction(num, "DEPOSIT", 0); // Amount would be captured in the function
                 break;
             case 3:
                 num = getAccountNumber();
                 depositWithdraw(num, 2);
-                logTransaction(num, "WITHDRAWAL", 0); // Amount would be captured in the function
                 break;
             case 4:
                 num = getAccountNumber();
@@ -122,7 +120,7 @@ int main() {
             case 8:
                 if (adminLogin()) {
                     // Display transaction history
-                    system("type transactions.log"); // Use "type" for Windows
+                    system("type transactions.log"); 
                 } else {
                     cout << "\n\n\tAccess Denied!";
                 }
